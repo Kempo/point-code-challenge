@@ -17,7 +17,7 @@ Given the time frame, here are some main items I decided not to implement:
 
 For this project, I decided to use JWTs to handle authentication/authorization on the server. I use a default encryption algorithm `HS256`, specify an expiration date of `1 hour` and store a user `id` within each token which can then be decoded to fetch user details in the server's context. 
 
-Tokens are then stored in the headers of a request using the Bearer scheme: 
+To use the tokens, store them in the headers of a request using the Bearer scheme: 
 ```json
 {
   "Authorization": "Bearer <token>"
@@ -73,7 +73,7 @@ query fetchPosts {
 ```
 
 Fetch all users:
-```
+```graphql
 query fetchUsers {
   users {
     id
