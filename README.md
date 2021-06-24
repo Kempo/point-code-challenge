@@ -9,7 +9,7 @@ Assuming `npm` and `node` are already installed, after cloning the repo:
 
 From there, you can navigate to the server playground located at `localhost:4000`.
 
-## Design Decisions
+## Overview
 Given the time frame, here are some main items I decided not to implement:
 1. Password hashing (such as with `bcrypt`)
 2. A database and ORM (ie. Prisma or Sequelize)
@@ -26,7 +26,7 @@ To use the tokens, store them in the headers of a request using the Bearer schem
 
 The `models.ts` file handles the business logic of the server, mimicking an API to a database and contains all the necessary function calls. In hindsight, it may have been better to take advantage of Apollo Server's `datasources` API structure and have DB calls initiated through a resolver's context.
 
-The `resolvers.ts` file is the entry-point for requests and how they are processed. `schema.ts` contains the actual GraphQL schema. All fields are made nullable.
+The `resolvers.ts` file is the entry-point for requests and how they are processed. `schema.ts` contains the actual GraphQL schema. All fields are made nullable. Errors are thrown with `ApolloError`.
 
 Everything JWT-related is located within the `auth` service in `src/services/auth.ts` which sets up Passport.js and contains functions to authenticate requests and `signTokens`.
 
